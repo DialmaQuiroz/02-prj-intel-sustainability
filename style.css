@@ -1,1 +1,172 @@
 /* Add your CSS here */
+
+/* Intel-branded background and header styles */
+body {
+  /* Use Intel blue gradient background */
+  background: linear-gradient(135deg, #0071c5 0%, #34bbff 100%);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.hero {
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.05); /* subtle overlay */
+}
+
+.intel-logo {
+  width: 120px; /* Resize logo */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #fff;
+  text-shadow: 0 2px 8px #0071c5;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #e0f7fa;
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline scroll snap and layout */
+.timeline {
+  width: 100vw;
+  overflow-x: auto;
+  padding: 3rem 0 2rem 0; /* Increased top and bottom padding for more space */
+  background: #a0d7f7; /* Light background to make timeline pop */
+  box-shadow: 0 4px 32px rgba(0, 113, 197, 0.10); /* Subtle shadow for depth */
+  margin: 2rem 0; /* Space above and below timeline */
+}
+.timeline-track {
+  display: flex;
+  gap: 2.5rem; /* Increased gap between cards */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 1rem; /* Increased top padding for more space above cards */
+  scrollbar-width: thick; /* For Firefox: makes scrollbar thicker */
+  scrollbar-color: #d4e5f1 #e0f7fa; /* For Firefox: blue thumb, light track */
+}
+
+/* For Chrome, Edge, and Safari */
+.timeline-track::-webkit-scrollbar {
+  height: 16px; /* Make scrollbar taller */
+}
+.timeline-track::-webkit-scrollbar-thumb {
+  background: #0071c5; /* Intel blue for thumb */
+  border-radius: 8px;
+  border: 3px solid #e0f7fa; /* Light border for contrast */
+}
+.timeline-track::-webkit-scrollbar-track {
+  background: #0071c5; /* Light blue track */
+  border-radius: 8px;
+}
+
+.card {
+  background: #fff;
+  color: #0071c5;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 113, 197, 0.15);
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  padding: 1.5rem 1rem;
+  scroll-snap-align: start;
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden; /* Prevent overlay from spilling out */
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  margin-bottom: 1rem; /* Add margin below each card for extra space */
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(1, 48, 151, 0.5);
+}
+.card h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.2rem 0;
+  color: #0071c5;
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: #00aaff;
+}
+.card-img {
+  width: 100%; /* Image fills the card width */
+  max-width: 100%;
+  height: 180px; /* Set a fixed height for consistency */
+  object-fit: cover; /* Crop image to fill area */
+  border-radius: 0.7rem; /* Rounded corners for modern look */
+  margin-bottom: 1rem; /* Space below image */
+  display: block;
+}
+
+/* Overlay that appears on hover */
+.card-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 113, 197, 0.85); /* Intel blue, semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 1rem;
+  pointer-events: none; /* Allow hover to trigger on card */
+}
+.card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card-details {
+  display: block;
+  color: #fff; /* White text for message */
+  background: none;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  box-shadow: none;
+  border-radius: 0.5rem;
+  opacity: 1;
+  animation: none;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (max-width: 700px) {
+  .timeline-track {
+    flex-direction: column;
+    gap: 2rem; /* Increased gap for vertical layout */
+    padding: 2rem 1rem;
+  }
+  .card {
+    min-width: 90vw;
+    max-width: 98vw;
+    margin-bottom: 1.5rem; /* More space below cards on small screens */
+  }
+}
+
+/* Add comments for students */
+/*
+- .hero: header section with logo and headline
+- .timeline: main timeline area
+- .timeline-track: flex container for cards, scrollable
+- .card: each milestone card
+- .card-details: extra info shown on hover
+- .card-overlay: covers card with blue color and shows message on hover
+- Responsive: cards stack vertically on small screens
+- Custom scrollbar styles added for .timeline-track
+- Makes scrollbar bigger and uses Intel colors for visibility
+- .timeline now has a light background, shadow, and rounded corners to visually pop out
+- .card-img now fills the card width and has a fixed height
+- object-fit: cover crops images to fit nicely
+- Rounded corners and margin for style
+*/
