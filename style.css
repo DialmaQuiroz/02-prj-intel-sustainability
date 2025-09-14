@@ -37,12 +37,15 @@ body {
 
 /* Timeline scroll snap and layout */
 .timeline {
-  width: 100vw;
+  width: 95vw;
+  /* Center the timeline section horizontally */
+  margin: 2rem auto; /* auto left/right centers the block */
   overflow-x: auto;
   padding: 3rem 0 2rem 0; /* Increased top and bottom padding for more space */
   background: #a0d7f7; /* Light background to make timeline pop */
   box-shadow: 0 4px 32px rgba(0, 113, 197, 0.10); /* Subtle shadow for depth */
-  margin: 2rem 0; /* Space above and below timeline */
+  border-radius: 1.5rem; /* Rounded corners for the timeline */
+  /* The timeline now looks like a card in the middle of the page */
 }
 .timeline-track {
   display: flex;
@@ -52,6 +55,7 @@ body {
   padding: 1rem 1rem; /* Increased top padding for more space above cards */
   scrollbar-width: thick; /* For Firefox: makes scrollbar thicker */
   scrollbar-color: #d4e5f1 #e0f7fa; /* For Firefox: blue thumb, light track */
+  scroll-behavior: smooth; /* Enable smooth scrolling for snap */
 }
 
 /* For Chrome, Edge, and Safari */
@@ -138,6 +142,15 @@ body {
   border-radius: 0.5rem;
   opacity: 1;
   animation: none;
+}
+
+/* Center the timeline-tip text */
+.timeline-tip {
+  text-align: center; /* Center the text horizontally */
+  margin: 1rem auto;  /* Add space above and below, center horizontally */
+  font-size: 1.1rem;  /* Slightly larger font for visibility */
+  color: #fff;        /* Keep text white for contrast */
+  max-width: 600px;   /* Limit width for better readability */
 }
 
 /* Responsive: stack cards vertically on small screens */
