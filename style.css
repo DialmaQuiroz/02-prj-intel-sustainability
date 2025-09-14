@@ -60,7 +60,7 @@ body {
 
 /* For Chrome, Edge, and Safari */
 .timeline-track::-webkit-scrollbar {
-  height: 16px; /* Make scrollbar taller */
+  height: 20px; /* Make scrollbar taller */
 }
 .timeline-track::-webkit-scrollbar-thumb {
   background: #0071c5; /* Intel blue for thumb */
