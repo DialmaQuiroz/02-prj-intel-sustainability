@@ -6,7 +6,7 @@ body {
   background: linear-gradient(135deg, #0071c5 0%, #34bbff 100%);
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
+  color: #00355e;
 }
 
 .hero {
@@ -37,10 +37,10 @@ body {
 
 /* Timeline scroll snap and layout */
 .timeline {
-  width: 95vw;
+  width: 98vw;
   /* Center the timeline section horizontally */
   margin: 2rem auto; /* auto left/right centers the block */
-  overflow-x: auto;
+  overflow-x: clip;
   padding: 3rem 0 2rem 0; /* Increased top and bottom padding for more space */
   background: #a0d7f7; /* Light background to make timeline pop */
   box-shadow: 0 4px 32px rgba(0, 113, 197, 0.10); /* Subtle shadow for depth */
@@ -132,7 +132,7 @@ body {
 
 .card-details {
   display: block;
-  color: #fff; /* White text for message */
+  color: #ffffff; /* White text for message */
   background: none;
   font-size: 1.1rem;
   text-align: center;
@@ -152,22 +152,128 @@ body {
   color: #fff;        /* Keep text white for contrast */
   max-width: 600px;   /* Limit width for better readability */
 }
-
-/* Responsive: stack cards vertically on small screens */
-@media (max-width: 700px) {
-  .timeline-track {
-    flex-direction: column;
-    gap: 2rem; /* Increased gap for vertical layout */
-    padding: 2rem 1rem;
-  }
-  .card {
-    min-width: 90vw;
-    max-width: 98vw;
-    margin-bottom: 1.5rem; /* More space below cards on small screens */
-  }
+/* Make the three columns stand out with a light background and rounded corners */
+.col-12.col-md-4 {
+  background-color: #f8f9fa; /* Very light gray */
+  border-radius: 12px;       /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Soft shadow for depth */
+  padding: 24px;             /* Space inside the column */
+  margin-bottom: 0rem; /* Add more space below each column */
 }
 
-/* Add comments for students */
+/* --- Subscription Form Section Styles --- */
+/* This styles the subscription form area */
+.subscribe-section {
+  background-color: #f8f9fa; /* Light background for contrast */
+  border-radius: 1rem;       /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,113,197,0.08); /* Soft shadow */
+  padding: 2rem 1rem;        /* Space inside the section */
+  margin-bottom: 2rem;       /* Space below the section */
+  max-width: 650px;          /* Limit width for readability */
+  margin-left: auto;         /* Center horizontally */
+  margin-right: auto;
+}
+
+/* Style the form inputs */
+.subscribe-section .form-label {
+  font-weight: bold;
+  color: #0071c5; /* Intel blue for labels */
+}
+
+.subscribe-section .form-control-sm {
+  border-radius: 0.5rem;
+  border: 1px solid #a0d7f7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem; /* Smaller padding for smaller input */
+  width: 100%; /* Make input fill the section width */
+  box-sizing: border-box;
+}
+
+/* Style the subscribe button */
+.subscribe-section .btn-primary {
+  background-color: #0071c5; /* Intel blue */
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.subscribe-section .btn-primary:hover {
+  background-color: #005ea6; /* Darker blue on hover */
+}
+
+/* Center the privacy message */
+.subscribe-section .text-muted {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* --- Footer Styles --- */
+/* Styles for the footer section at the bottom of the page */
+.site-footer {
+  background-color: #0071c5; /* Intel blue */
+  color: #fff;               /* White text for contrast */
+  text-align: center;        /* Center all text and links */
+  padding: 1.5rem 0 1rem 0;  /* Space above and below */
+  margin-top: 2rem;          /* Space above footer */
+  border-radius: 0.5rem 0.5rem 0 0; /* Rounded top corners */
+}
+
+/* Footer navigation links */
+.footer-nav {
+  text-align: center;
+  list-style: none;          /* Remove bullet points */
+  padding: 0;
+  margin: 0 0 0.5rem 0;      /* Space below links */
+  display: flex;             /* Arrange links in a row */
+  justify-content: center;   /* Center the links */
+  gap: 2rem;                 /* Space between links */
+}
+
+.footer-nav li {
+  display: inline;           /* Display links inline */
+}
+
+.footer-nav a {
+  color: #fff;               /* White link text */
+  text-decoration: none;     /* Remove underline */
+  font-weight: bold;
+  font-size: 1rem;
+  transition: text-decoration 0.2s;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Copyright text */
+.footer-copy {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+}
+
+/* --- Section Divider Styles --- */
+/* This styles the divider lines between sections */
+.section-divider {
+  width: 60%;              /* Divider is 60% of the page width */
+  margin: 2rem auto;       /* Space above/below, center horizontally */
+  border: none;            /* Remove default border */
+  border-top: 3px solid #00355e; /* Intel blue line */
+  opacity: 0.3;            /* Make the line lighter */
+  border-radius: 2px;      /* Slightly rounded ends */
+}
+
+/* Make three-column section content use flexbox for vertical alignment */
+.column-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill the column height */
+  justify-content: space-between; /* Space between text and button */
+}
+
 /*
 - .hero: header section with logo and headline
 - .timeline: main timeline area
@@ -182,4 +288,13 @@ body {
 - .card-img now fills the card width and has a fixed height
 - object-fit: cover crops images to fit nicely
 - Rounded corners and margin for style
+- .subscribe-section: styles the newsletter form area
+- .form-label: styles the labels for inputs
+- .form-control: styles the input boxes
+- .btn-success: styles the subscribe button
+- .text-muted: styles the privacy message
+- .site-footer: styles the footer area
+- .footer-nav: styles the navigation links
+- .footer-copy: styles the copyright text
+- .section-divider: styles the horizontal divider between sections
 */
